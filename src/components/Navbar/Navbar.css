@@ -1,0 +1,47 @@
+.navbar {
+    margin-bottom: 2rem;
+}
+
+.navbar ul {
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+    padding: 0;
+    margin: 0 6rem;
+}
+
+.navbar li {
+    margin-right: 2rem;
+}
+
+.navbar a {
+    text-decoration: none;
+}
+
+.normal-link {
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.rainbow-text {
+    font-size: 2rem;
+    font-weight: bold;
+    background: linear-gradient(45deg, #ff0000, #ff8000, #ffff00, #80ff00, #00ff80, #8000ff, #ff0080);
+    background-size: 600%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: rainbow 1s linear infinite;
+    text-decoration: none;
+}
+
+@keyframes rainbow {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
