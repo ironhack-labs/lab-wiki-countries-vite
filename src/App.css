@@ -2,3 +2,8 @@
   margin: 0 auto;
   text-align: center;
 }
+
+.HomePage img {
+	width: 30px;
+	margin-right: 12px;
+}
