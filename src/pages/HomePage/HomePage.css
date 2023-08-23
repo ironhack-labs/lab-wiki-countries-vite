@@ -1,0 +1,14 @@
+.HomePage p {
+    font-size: 24px; 
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.HomePage h2 {
+    margin-top: 30vh;
+}
+
+.HomePage img {
+    margin-right: 0.5rem;
+    width: 1.2rem;
+}
