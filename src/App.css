@@ -2,3 +2,24 @@
   margin: 0 auto;
   text-align: center;
 }
+
+.NavBar {
+  background-color: rgb(95, 95, 225);
+  color: white;
+  display: flex;
+  justify-content: left;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.img {
+  height: 50px;
+  padding-right: 20px;
+
+}
+
+.line {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
