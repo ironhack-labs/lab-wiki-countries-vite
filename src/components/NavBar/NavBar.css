@@ -1,0 +1,10 @@
+.nav {
+    background-color: black;
+    color: rgb(87, 87, 239);
+    padding: 15px 0;
+}
+
+.nav .nav-item {
+    margin-left: 50px;
+    font-size: 20px;
+}
