@@ -2,3 +2,9 @@
   margin: 0 auto;
   text-align: center;
 }
+
+.country-container{
+  display: flex;
+  justify-content: center;
+  border: 1px solid;
+}
