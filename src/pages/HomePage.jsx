@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom";
 import axios from "axios"
-import './HomePage.css'
+import '../index.css'
 
 const apiUrl = "https://ih-countries-api.herokuapp.com/countries"
 
