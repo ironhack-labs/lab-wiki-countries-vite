@@ -2,3 +2,21 @@
   margin: 0 auto;
   text-align: center;
 }
+
+.Navbar {
+  background-color: rgb(86, 154, 255);
+  text-align: left;
+  padding: 20px;
+  color: white;
+}
+
+.Title hr {
+
+  color: blue;
+  size: 5px;
+}
+
+.title img {
+
+  margin-right: 400px;
+}
