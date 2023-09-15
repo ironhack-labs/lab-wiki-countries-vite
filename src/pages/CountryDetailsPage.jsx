@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 function CountryDetails() {
   const { countryId } = useParams();
@@ -10,9 +11,7 @@ function CountryDetails() {
     axios
       .get("https://ih-countries-api.herokuapp.com/countries/" + countryId)
       .then((response) => {
-        //console.log(response.data)
         setCountryDetails(response.data);
-        console.log(countryDetails.name.official);
       })
       .catch((e) => {
         console.log("", e);
@@ -25,14 +24,16 @@ function CountryDetails() {
 
       <nav className="navbar navbar-dark bg-primary mb-3">
         <div className="container">
-          <a className="navbar-brand" href="/">
+          <Link className="navbar-brand" to="/">
             WikiCountries
-          </a>
+          </Link>
         </div>
       </nav>
 
       <div className="container">
-        <p style={{ fontSize: "24px", fontWeight: "bold" }}>Country Details</p>
+        <p style={{ fontSize: "24px", fontWeight: "bold" }}>
+            Country Details: {countryDetails.name && countryDetails.name.common}
+        </p>
 
 
         <h1>{countryDetails.capital}</h1>
