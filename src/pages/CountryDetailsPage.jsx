@@ -13,25 +13,17 @@ function CountryDetails() {
 
     useEffect(() => {
         const apiURL = `https://ih-countries-api.herokuapp.com/countries/${countryId}`;
-        // axios.get(apiURL)
-        //     .then((response) => {
-        //         setCountry(response.data);
-        //         setFetching(false);
-        //     })
-
-
+     
         const details = async () => {
             const detailsResult = await axios.get(apiURL)
             console.log(detailsResult)
             setCountry(detailsResult.data);
             setFetching(false);
-
-        }
-
+        } 
+        
         details()
 
     }, [countryId]);
-
     return (
         <div>
             <h1>{country.alpha3Code}</h1>
