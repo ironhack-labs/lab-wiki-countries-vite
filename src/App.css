@@ -1,4 +1,25 @@
 #root {
-  margin: 0 auto;
+  margin: auto;
+  color: rgb(237, 180, 235);
+  font-family: 'Bebas Neue', sans-serif;
+}
+
+.navbar {
+  padding: 1em !important;
+}
+
+h1, h3 {
   text-align: center;
+  margin-right: 2em;
+}
+.centered-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.centered-container div {
+  margin: 10px;
 }
