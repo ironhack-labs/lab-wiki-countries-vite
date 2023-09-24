@@ -10,7 +10,7 @@ function HomePage() {
     axios
       .get("https://ih-countries-api.herokuapp.com/countries")
       .then((resp) => {
-        setCountries(resp.data); 
+        setCountries(resp.data);
       });
   }, []);
 
@@ -25,9 +25,9 @@ function HomePage() {
       <ul>
         {countries.map((country) => (
           <Link
-            to={`/country/${country.alpha2Code}`}
+            to={`/country/${country.alpha3Code}`}
             className="countries"
-            key={country.alpha2Code}
+            key={country.alpha3Code}
           >
             {country.name.common} <br />
             <img
