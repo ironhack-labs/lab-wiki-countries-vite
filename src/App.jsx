@@ -1,9 +1,21 @@
+import { Route, Routes } from "react-router-dom";
+import { useState, useEffect } from 'react';
 import "./App.css";
+import Navbar from "./components/Navbar";
+import CountryDetails from "./pages/CountryDetailsPage";
+import HomePage from "./pages/HomePage";
 
 function App() {
+  const [countries, setCountries] = useState([]); 
+  
   return (
     <div className="App">
-      <h1>LAB | React WikiCountries</h1>
+      <Navbar />
+
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/country/:alpha3Code" element={<CountryDetails  countries={countries} setCountries={setCountries}/>} />
+      </Routes>
     </div>
   );
 }
