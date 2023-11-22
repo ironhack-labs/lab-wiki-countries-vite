@@ -11,17 +11,18 @@ function HomePage() {
 
     useEffect(() => {
         axios
-            .get(`${URL}`).then((response) => {
+            .get(`${URL}`)
+            .then((response) => {
                 setData(response.data);
             });
     }, [])
 
     return (
         <>
-            <h1>WikiCountries: Your Guide to the World</h1>
+            <h1 className="titlePage">WikiCountries: Your Guide to the World</h1>
             <ul className="list-group">
                 {data ?
-                    data.map(e => (<Link className="list-group-item list-group-item-action" key={e._id} to={`/${e.alpha3Code}`}>{e.name.common}   <img src={`https://flagpedia.net/data/flags/icon/72x54/${e.alpha2Code.toLowerCase()}.png`} alt="flag"></img></Link>))
+                    data.map(e => (<Link className="list-group-item list-group-item-action" key={e._id} to={`/${e.alpha3Code}`}><span className="countryName">{e.name.common} </span>  <img src={`https://flagpedia.net/data/flags/icon/72x54/${e.alpha2Code.toLowerCase()}.png`} alt="flag"></img></Link>))
                     : 'Loading...'
                 }
             </ul >
