@@ -1,0 +1,14 @@
+.pochi {
+    color: #000;
+    font-size: 2em;
+    text-decoration: none;
+
+}
+
+.pochi:hover {
+    color: rgb(200, 0, 255);
+}
+
+.pochi .active {
+    color: #1b303a;
+}
