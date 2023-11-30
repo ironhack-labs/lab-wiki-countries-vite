@@ -4,8 +4,7 @@ function Navbar() {
     <>
       <nav className="navbar navbar-dark bg-primary">
         <Link to="/">
-          {" "}
-          <h3 className="nav-wiki">WikiCountries</h3>
+          <h1 className="nav-wiki">WikiCountries</h1>
         </Link>
       </nav>
     </>

@@ -1,20 +1,28 @@
-import axios from "axios";
-import { useState, useEffect } from "react";
+// import axios from "axios";
+// import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import useFetch from "../../hooks/useFetch";
 function HomePage() {
-  const [countries, setCountries] = useState([]);
+  // const [countries, setCountries] = useState([]);
   const apiUrl = "https://ih-countries-api.herokuapp.com/countries";
-  useEffect(() => {
-    axios
-      .get(apiUrl)
-      .then((response) => setCountries(response.data))
-      .catch((err) => console.error(err));
-  }, []);
-  console.log(countries);
-  const sortCountries = [...countries].sort((a, b) =>
+  const { response, error, loading } = useFetch(apiUrl);
+  // useEffect(() => {
+  //   axios
+  //     .get(apiUrl)
+  //     .then((response) => setCountries(response.data))
+  //     .catch((err) => console.error(err));
+  // }, []);
+  // console.log(countries);
+  const sortCountries = [...response].sort((a, b) =>
     a.name.common.localeCompare(b.name.common)
   );
+  if (error) {
+    return <div>error..</div>;
+  }
 
+  if (loading) {
+    return <div>loading...</div>;
+  }
   return (
     <>
       {sortCountries.map((e) => (
