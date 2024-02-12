@@ -1,0 +1,9 @@
+.styling {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 auto;
+    width: 50%;
+    border-bottom: 1px solid grey;
+
+}
