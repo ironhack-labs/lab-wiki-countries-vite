@@ -3,9 +3,6 @@ import Navbar from "./components/Navbar";
 import HomePage from "./pages/HomePage.jsx";
 import { Routes, Route } from "react-router-dom";
 
-
-const BASE_API_URL = "https://ih-countries-api.herokuapp.com"
-
 function App() {
 
   <Routes>
@@ -17,6 +14,7 @@ function App() {
       <Navbar/>
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/countries/:alpha3Code" element={<HomePage />} />
         </Routes>
     </div>
   );
