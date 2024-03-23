@@ -34,12 +34,10 @@ export default function CountryTable() {
       <tbody>
         {countries.map((country) => (
             <tr key={country._id}>
-              <Link to={`/countries/${country.alpha2Code}`}>
-                <th scope="row">
-                  {countryCodeToFlagEmoji(country.alpha2Code)}{" "}
-                  {country.name.common}
-                </th>
-              </Link>
+                <td scope="row">
+                  <Link to={country.alpha3Code}>{countryCodeToFlagEmoji(country.alpha2Code)}{" "}
+                  {country.name.common}</Link>
+                </td>
             </tr>
         ))}
       </tbody>

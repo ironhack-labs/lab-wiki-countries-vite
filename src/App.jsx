@@ -1,5 +1,6 @@
 import "./App.css";
 import Navbar from "./components/Navbar";
+import CountryDetailsPage from "./pages/CountryDetailsPage.jsx";
 import HomePage from "./pages/HomePage.jsx";
 import { Routes, Route } from "react-router-dom";
 
@@ -14,7 +15,7 @@ function App() {
       <Navbar/>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/countries/:alpha3Code" element={<HomePage />} />
+          <Route path="/:alpha3Code" element={<CountryDetailsPage />} />
         </Routes>
     </div>
   );
