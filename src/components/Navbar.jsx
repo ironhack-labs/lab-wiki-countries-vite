@@ -1,3 +1,11 @@
-function Navbar() {}
+import { Link } from "react-router-dom";
 
-export default Navbar;
+
+export default function Navbar() {
+  return (
+    <nav>
+        <div className="logo"><Link to={`/`}>WikiCountries</Link></div>
+    </nav>
+  )
+}
+

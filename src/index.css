@@ -1,0 +1,39 @@
+nav {
+    height: 70px;
+    background-color: rgb(43, 123, 226);
+    color: #ffff;
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+
+.logo a {
+    color: #ffff;
+    text-decoration: none;
+    padding-left: 20px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.country-list a {
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+}
+
+.country-flag {
+    font-size: 100px;
+    height: 120px;
+}
+
+.loading {
+    padding-top: 200px;
+    font-size: 20px;
+}
+
+.border-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
