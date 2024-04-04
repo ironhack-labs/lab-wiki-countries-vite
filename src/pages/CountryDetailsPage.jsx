@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useParams } from "react-router-dom";
 
-function CountryDetails() {
+function CountryDetailsPages() {
   const BASE_URL = "https://ih-countries-api.herokuapp.com";
   const parameter = useParams();
 
@@ -30,44 +30,46 @@ function CountryDetails() {
         console.error(error);
       }
     };
-    getData();
-  }, []);
+
+    if (parameter.alpha3Code) {
+      getData();
+    }
+  }, [parameter.alpha3Code]);
 
   return (
-    <div>
-      <div className="container">{
-        <h1>Country Details</h1>
-        <h2>{country.name.common}</h2>
-        <table className="table">
-          <tbody>
-            <tr>
-              <td scope="row">Capital</td>
-              <td scope="row">{country.capital}</td>
-            </tr>
-            <tr>
-              <td scope="row">Area</td>
-              <td scope="row">{country.area}</td>
-            </tr>
-            <tr>
-              <td scope="row">Borders</td>
-
-              <td scope="row">
-                <ul>
-                  {country.borders ? (
-                    country.borders.map((border) => (
-                      <li key={border}>{border}</li>
-                    ))
-                  ) : (
-                    <li>No borders</li>
-                  )}
-                </ul>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        || 'Loading country details...'}</div>
+    <div className="container">
+      <h1>Country Details</h1>
+      <h2>{country.name?.common}</h2>
+      <table className="table">
+        <tbody>
+          <tr>
+            <th scope="row">Capital</th>
+            <td>{country.capital}</td>
+          </tr>
+          <tr>
+            <th scope="row">Area</th>
+            <td>{country.area}</td>
+          </tr>
+          <tr>
+            <th scope="row">Borders</th>
+            <td>
+              <ul>
+                {country.borders ? (
+                  country.borders.map((border) => (
+                    <li key={border}>
+                      <Link to={`/${border}`}>{border}</Link>
+                    </li>
+                  ))
+                ) : (
+                  <li>No borders</li>
+                )}
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   );
 }
 
-export default CountryDetails;
+export default CountryDetailsPages;
