@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export default function CountryTable() {
   const BASE_URL = "https://ih-countries-api.herokuapp.com";
 
-  const [countries, setCountries] = useState([]);
+  const [countries, setCountries] = useState(null);
 
   function countryCodeToFlagEmoji(countryCode) {
     return countryCode
@@ -30,17 +30,33 @@ export default function CountryTable() {
   }, []);
 
   return (
-    <table className="table">
-      <tbody>
-        {countries.map((country) => (
-            <tr key={country._id}>
-                <td scope="row">
-                  <Link to={country.alpha3Code}>{countryCodeToFlagEmoji(country.alpha2Code)}{" "}
-                  {country.name.common}</Link>
-                </td>
-            </tr>
-        ))}
-      </tbody>
-    </table>
+    <>
+      {countries ? (
+        <>
+          <table className="table">
+            <tbody>
+              {countries.map((country) => (
+                <tr key={country._id}>
+                  <td className="country-list" scope="row">
+                    <Link  to={country.alpha3Code}>
+                      <div className="country">
+                        <div className="country-flag">
+                          {countryCodeToFlagEmoji(country.alpha2Code)}
+                        </div>
+                        <div className="country-title">
+                          {country.name.common}
+                        </div>
+                      </div>
+                    </Link>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </>
+      ) : (
+        <div className="loading">Loading...</div>
+      )}
+    </>
   );
 }

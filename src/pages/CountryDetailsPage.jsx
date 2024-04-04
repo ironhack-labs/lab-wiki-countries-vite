@@ -8,9 +8,10 @@ function CountryDetailsPages() {
 
   console.log(parameter);
 
-  const [country, setCountry] = useState({});
+  const [country, setCountry] = useState(null);
 
   function countryCodeToFlagEmoji(countryCode) {
+    if (!countryCode) return "";
     return countryCode
       .toUpperCase()
       .split("")
@@ -39,35 +40,44 @@ function CountryDetailsPages() {
   return (
     <div className="container">
       <h1>Country Details</h1>
-      <h2>{country.name?.common}</h2>
-      <table className="table">
-        <tbody>
-          <tr>
-            <th scope="row">Capital</th>
-            <td>{country.capital}</td>
-          </tr>
-          <tr>
-            <th scope="row">Area</th>
-            <td>{country.area}</td>
-          </tr>
-          <tr>
-            <th scope="row">Borders</th>
-            <td>
-              <ul>
-                {country.borders ? (
-                  country.borders.map((border) => (
-                    <li key={border}>
-                      <Link to={`/${border}`}>{border}</Link>
-                    </li>
-                  ))
-                ) : (
-                  <li>No borders</li>
-                )}
-              </ul>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      {country ? (
+        <>
+          <div className="country-flag">
+            {countryCodeToFlagEmoji(country.alpha2Code)}
+          </div>
+          <h2>{country.name?.common}</h2>
+          <table className="table">
+            <tbody>
+              <tr>
+                <th scope="row">Capital</th>
+                <td>{country.capital}</td>
+              </tr>
+              <tr>
+                <th scope="row">Area</th>
+                <td>{country.area} Km2</td>
+              </tr>
+              <tr>
+                <th scope="row">Borders</th>
+                <td>
+                  <ul className="border-list">
+                    {country.borders ? (
+                      country.borders.map((border) => (
+                        <li key={border}>
+                          <Link to={`/${border}`}>{border}</Link>
+                        </li>
+                      ))
+                    ) : (
+                      <li>No borders</li>
+                    )}
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </>
+      ) : (
+        <div className="loading">Loading...</div>
+      )}
     </div>
   );
 }
