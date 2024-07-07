@@ -1,29 +1,56 @@
 import Navbar from "../components/Navbar";
-
+import { useState, useEffect } from "react";
+import axios from "axios";
+import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function CountryDetails() {
+  const [countryDetails, setCountryDetails] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
+  let { country } = useParams();
 
+  useEffect(() => {
+    console.log("countries");
 
+    if (country) {
+      axios
+        .get(`https://ih-countries-api.herokuapp.com/countries/${country}`)
+        .then((country) => {
+          setCountryDetails(country.data);
+          console.log(country.data);
+          setIsLoading(false);
+        })
+        .catch((error) => console.error("error message", error));
+    }
+  }, [country]);
+
+  if (isLoading) {
+    return (
+      <div>
+        <p>Loading</p>
+      </div>
+    );
+  }
   return (
     <div>
       <Navbar />
 
       <div className="container">
-        <p style={{fontSize: "24px",fontWeight: "bold"}}>Country Details</p>
+        <p style={{ fontSize: "24px", fontWeight: "bold" }}>Country Details</p>
 
-        <h1>France</h1>
+        <h1>{countryDetails.name.common}</h1>
 
         <table className="table">
           <thead></thead>
           <tbody>
             <tr>
-              <td style={{width: "30%"}}>Capital</td>
-              <td>Paris</td>
+              <td style={{ width: "30%" }}>Capital</td>
+              <td>{countryDetails.capital}</td>
             </tr>
             <tr>
               <td>Area</td>
               <td>
-                551695 km
+                {countryDetails.area} km
                 <sup>2</sup>
               </td>
             </tr>
@@ -31,30 +58,15 @@ function CountryDetails() {
               <td>Borders</td>
               <td>
                 <ul>
-                  <li>
-                    <a href="/AND">Andorra</a>
-                  </li>
-                  <li>
-                    <a href="/BEL">Belgium</a>
-                  </li>
-                  <li>
-                    <a href="/DEU">Germany</a>
-                  </li>
-                  <li>
-                    <a href="/ITA">Italy</a>
-                  </li>
-                  <li>
-                    <a href="/LUX">Luxembourg</a>
-                  </li>
-                  <li>
-                    <a href="/MCO">Monaco</a>
-                  </li>
-                  <li>
-                    <a href="/ESP">Spain</a>
-                  </li>
-                  <li>
-                    <a href="/CHE">Switzerland</a>
-                  </li>
+                  {countryDetails.borders
+                    ? countryDetails.borders.map((neighbour) => {
+                        return (
+                          <li key={neighbour}>
+                            <Link to={`/${neighbour}`}>{neighbour}</Link>
+                          </li>
+                        );
+                      })
+                    : null}
                 </ul>
               </td>
             </tr>
