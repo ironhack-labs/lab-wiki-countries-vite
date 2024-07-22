@@ -1,11 +1,16 @@
-import "./App.css";
+import Navbar from "./components/Navbar"
+import {Route,Routes} from "react-router-dom"
+import HomePage from "./pages/HomePage"
+import CountryDetailsPage from "./pages/CountryDetailsPage"
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <h1>LAB | React WikiCountries</h1>
+    <div>
+    <Navbar />
+    <Routes>
+   <Route element={<HomePage/>}path="/"/>
+   <Route element={<CountryDetailsPage/>}path="/country/:id"/>
+    </Routes>
     </div>
-  );
+  )
 }
-
-export default App;
