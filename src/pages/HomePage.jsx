@@ -4,23 +4,17 @@ import Navbar from '../components/Navbar';
 import { Link } from 'react-router-dom';
 
 const HomePage = () => {
-  // State to store countries data
   const [countries, setCountries] = useState([]);
 
-  // Fetch countries data when the component mounts
   useEffect(() => {
     const fetchCountries = async () => {
-      // Make a GET request to the API
       const response = await axios.get('https://ih-countries-api.herokuapp.com/countries');
-      // Log the response data to see its structure
       console.log(response.data);
-      // Update state with the response data
       setCountries(response.data);
     };
 
     fetchCountries();
-  }, []); // Empty dependency array ensures this runs once when component mounts
-
+  }, []); 
   return (
     <div>
       <Navbar />
