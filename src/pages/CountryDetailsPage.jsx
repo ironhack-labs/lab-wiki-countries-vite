@@ -22,7 +22,7 @@ function CountryDetailsPage() {
     <div>
       <Navbar />
       <div className="container">
-        <p style={{ fontSize: '24px', fontWeight: 'bold' }}>Country Details</p>
+        <h1 style={{ fontSize: '24px', fontWeight: 'bold' }}>Country Details</h1>
         <h1>{country.name.common}</h1>
 
         <table className="table">
