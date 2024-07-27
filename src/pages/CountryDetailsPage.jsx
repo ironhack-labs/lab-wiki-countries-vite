@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import Navbar from '../components/Navbar';
-import { useParams } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import Navbar from "../components/Navbar";
+import { useParams } from "react-router-dom";
 
 function CountryDetailsPage() {
   const { countryId } = useParams();
@@ -8,7 +8,9 @@ function CountryDetailsPage() {
 
   useEffect(() => {
     const fetchCountry = async () => {
-      const response = await fetch(`https://ih-countries-api.herokuapp.com/countries/${countryId}`);
+      const response = await fetch(
+        `https://ih-countries-api.herokuapp.com/countries/${countryId}`
+      );
       const data = await response.json();
       setCountry(data);
     };
@@ -22,29 +24,37 @@ function CountryDetailsPage() {
     <div>
       <Navbar />
       <div className="container">
-        <h1 style={{ fontSize: '24px', fontWeight: 'bold' }}>Country Details</h1>
+        <h1 style={{ fontSize: "24px", fontWeight: "bold" }}>
+          Country Details
+        </h1>
         <h1>{country.name.common}</h1>
 
         <table className="table">
           <tbody>
             <tr>
-              <td style={{ width: '30%' }}>Capital</td>
+              <td style={{ width: "30%" }}>Capital</td>
               <td>{country.capital[0]}</td>
             </tr>
             <tr>
               <td>Area</td>
-              <td>{country.area} km<sup>2</sup></td>
+              <td>
+                {country.area} km<sup>2</sup>
+              </td>
             </tr>
             <tr>
               <td>Borders</td>
               <td>
-                <ul>
-                  {country.borders.map(border => (
-                    <li key={border}>
-                      <a href={`/${border}`}>{border}</a>
-                    </li>
-                  ))}
-                </ul>
+                {country.borders.length > 0 ? (
+                  <ul>
+                    {country.borders.map((border) => (
+                      <li key={border}>
+                        <a href={`/${border}`}>{border}</a>
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p>No borders</p>
+                )}
               </td>
             </tr>
           </tbody>

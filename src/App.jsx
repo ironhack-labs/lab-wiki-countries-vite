@@ -14,8 +14,3 @@ function App() {
 }
 
 export default App;
-
-{/* <div className="App">
-      <Navbar />
-      <HomePage />
-    </div> */}

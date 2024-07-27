@@ -29,7 +29,7 @@ const HomePage = () => {
                 key={country.alpha3Code} 
                 className="list-group-item list-group-item-action d-flex flex-column align-items-center" 
                 to={`/${country.alpha3Code}`}
-                style={{ textDecoration: 'none', textAlign: 'center' }} // Optional: remove underline from links and center text
+                style={{ textDecoration: 'none', textAlign: 'center' }}
               >
                 <img 
                   src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`} 
