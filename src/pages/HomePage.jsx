@@ -27,10 +27,10 @@ function HomePage() {
 
   const countriesList = countries.map((country) => {
     return (
-        <div className="container" key={country.alpha3Code}>
-        <Link className="list-group-item list-group-item-action" to={`/country/${country.alpha3Code}`}>
+        <div className="container" key={country.alpha2Code}>
+        <Link className="list-group-item list-group-item-action" to={`/${country.alpha3Code}`}>
         <img 
-              src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code}.png`} 
+              src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`} 
               alt={`${country.name.common} flag`}
             />
           <CountriesList country={country} />
