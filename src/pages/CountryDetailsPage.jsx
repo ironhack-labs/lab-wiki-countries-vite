@@ -2,14 +2,14 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
-function CountryDetailsPage(props) {
+function CountryDetailsPage() {
   const { countryCode } = useParams();
   const [countryData, setCountryData] = useState(null);
 
   useEffect(() => {
     const fetchCountryData = async () => {
       try {
-        const response = await axios.get(`https://restcountries.eu/rest/v2/alpha/${countryCode}`);
+        const response = await axios.get(`https://ih-countries-api.herokuapp.com/countries/${countryCode}`);
         setCountryData(response.data);
       } catch (error) {
         console.error('Error fetching country data:', error);
@@ -18,8 +18,6 @@ function CountryDetailsPage(props) {
 
     fetchCountryData();
   }, [countryCode]);
-
-  let title = "Country Details";
 
   if (!countryData) {
     return (

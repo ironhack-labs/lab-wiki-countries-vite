@@ -9,7 +9,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
-      <Route exact path="/:alpha3code" element={<CountryDetailsPage />} />
+      <Route exact path="/:countryCode" element={<CountryDetailsPage />} />
       </Routes>
   );
 }

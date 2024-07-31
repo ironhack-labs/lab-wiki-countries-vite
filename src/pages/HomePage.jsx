@@ -4,7 +4,6 @@ import CountriesList from "../components/CountriesList";
 import { Link } from "react-router-dom";
 
 function HomePage() {
-  let title = "WikiCountries: Your Guide to the World";
 
   const [countries, setCountries] = useState([]);
 
@@ -53,7 +52,7 @@ function HomePage() {
         {countries.length > 0 ? (
             <a className ="list-group-item list-group-item-action" href="/">{countriesList}</a>
         ):(
-            <a className ="list-group-item list-group-item-action" href="/">  Loading...</a>
+            <a>Loading...</a>
         )}
   
     </div>
