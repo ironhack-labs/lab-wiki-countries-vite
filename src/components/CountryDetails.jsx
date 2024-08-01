@@ -11,7 +11,7 @@ const CountryDetails = () => {
 
   useEffect(() => {
     fetchCountryData()
-  }, [])
+  }, [countryId])
 
   const fetchCountryData = () => {
     axios
@@ -58,7 +58,7 @@ const CountryDetails = () => {
                     borders.map(border => {
                       return (
                         <li key={border}>
-                          <Link reloadDocument to={`/${border}`} >{border}</Link>
+                          <Link to={`/${border}`} >{border}</Link>
                         </li>
                       )
                     })
