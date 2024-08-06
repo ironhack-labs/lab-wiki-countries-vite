@@ -1,15 +1,44 @@
 import { describe, test, expect, vi, beforeEach, afterEach } from "vitest";
 import { render, screen, waitFor } from "@testing-library/react";
-import { countries } from "./data";
 import axios from "axios";
 import { MemoryRouter } from "react-router-dom";
-import App from "../App";
 import HomePage from "../pages/HomePage";
 
 vi.mock("axios");
 
 describe("HomePage component", async () => {
-  const countriesMock = countries.slice(0, 5);
+  const countriesMock = [
+    {
+      name: {
+        common: "France",
+      },
+      alpha3Code: "FRA",
+    },
+    {
+      name: {
+        common: "Germany",
+      },
+      alpha3Code: "DEU",
+    },
+    {
+      name: {
+        common: "Spain",
+      },
+      alpha3Code: "ESP",
+    },
+    {
+      name: {
+        common: "Italy",
+      },
+      alpha3Code: "ITA",
+    },
+    {
+      name: {
+        common: "Portugal",
+      },
+      alpha3Code: "PRT",
+    },
+  ];
 
   afterEach(() => {
     axios.get.mockReset();
@@ -38,7 +67,7 @@ describe("HomePage component", async () => {
 
     render(
       <MemoryRouter initialEntries={["/"]}>
-        <App />
+        <HomePage />
       </MemoryRouter>
     );
 
@@ -51,7 +80,7 @@ describe("HomePage component", async () => {
   test("renders the list of country names retrieved from the Countries API", async () => {
     render(
       <MemoryRouter initialEntries={["/"]}>
-        <App />
+        <HomePage />
       </MemoryRouter>
     );
 
@@ -67,7 +96,7 @@ describe("HomePage component", async () => {
   test("renders the list of countries retrieved from the Countries API as links", async () => {
     render(
       <MemoryRouter initialEntries={["/"]}>
-        <App />
+        <HomePage />
       </MemoryRouter>
     );
 
