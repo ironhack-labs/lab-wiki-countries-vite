@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 function CountryDetails() {
   const { countryId } = useParams();
@@ -55,7 +56,7 @@ function CountryDetails() {
                     {countryInfo.borders && countryInfo.borders.length > 0 ? (
                       countryInfo.borders.map((border) => (
                         <li style={{ listStyle: "none" }} key={border}>
-                          <a href={`/${border}`}>{border}</a>
+                          <Link to={`/${border}`}>{border}</Link>
                         </li>
                       ))
                     ) : (
