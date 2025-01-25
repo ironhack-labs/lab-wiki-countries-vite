@@ -12,6 +12,9 @@ function HomePage() {
 
       <div className="container" >
         <h1>WikiCountries: Your Guide to the World</h1>
+        {countries.map((country) => {
+          <h4>{country.name.common}</h4>
+        })}
 
         
       </div>
